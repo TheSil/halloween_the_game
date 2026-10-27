@@ -60,6 +60,9 @@ h1 .nw{font-size:14px;margin-left:12px;vertical-align:6px;padding:4px 8px 3px}
  color:var(--mute);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 13px;display:inline-flex;align-items:center;gap:8px}
 .bar button:hover{color:var(--bone)}
 .bar button.on{color:var(--bone);border-color:var(--bone);background:#22222a}
+.bar{width:942px;max-width:100%;box-sizing:border-box;flex-wrap:nowrap}
+.bar button{flex:1 1 auto;justify-content:center;padding:8px 6px;letter-spacing:.05em;font-size:13px;white-space:nowrap}
+@media(max-width:700px){.bar{flex-wrap:wrap}}
 .bar button .sw{width:11px;height:11px;border-radius:50%;background:var(--c);opacity:.35}
 .bar button.on .sw{opacity:1;box-shadow:0 0 8px var(--c)}
 .bar button .li{width:20px;height:20px;opacity:.4}
