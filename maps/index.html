@@ -6,7 +6,7 @@ body{font-family:Bahnschrift,'DIN Alternate','Segoe UI',Arial,sans-serif;color:v
 /* one page frame for all tabs: the nav keeps the same width and place on every page (the width of the widest page, the maps),
    narrower content is centred under it; the scrollbar gutter is always reserved so short and long pages line up too */
 html{scrollbar-gutter:stable}
-.stack{display:flex;flex-direction:column;align-items:safe center;gap:14px;width:max-content;min-width:min(1194px,100%);flex-shrink:0}      /* never narrower than its content (fixed-width tables on a phone) */
+.stack{display:flex;flex-direction:column;align-items:safe center;gap:14px;width:min(1194px,100%);flex-shrink:0}
 .stack>nav{align-self:stretch}
 nav{display:flex;flex-wrap:wrap;gap:6px;padding:5px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
 nav a{font-stretch:condensed;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--mute);padding:9px 16px;border-radius:8px}
@@ -47,6 +47,21 @@ main{padding:10px 12px 12px;display:grid;gap:6px;align-items:stretch}
 .sheet.alt .card.empty{background:transparent;border:1px dashed #1b1b20}
 .card.empty{background:transparent;border:1px dashed #1c2c33}
 .card.empty{background:transparent;border:1px dashed #22222a}
+/* executions page: one narrow card per weapon (5 across at full width, fewer on smaller screens), executions listed under their type */
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:12px;align-self:stretch}
+.wgrid header{gap:10px;padding:10px 12px 9px}
+.wgrid h1{font-size:23px}
+.wgrid h1 .nw{font-size:11px;margin-left:8px;vertical-align:3px;padding:3px 6px 2px}
+.wgrid .wic{width:54px;height:26px;flex:none}
+main.wl{display:flex;flex-direction:column;gap:5px;padding:4px 10px 12px}
+main.wl .rh{padding:9px 0 2px 9px;font-size:12px;letter-spacing:.14em;border-left-width:3px;margin-top:4px}
+main.wl .rh small{display:inline;margin:0 0 0 6px}
+.wgrid .card{padding:6px 9px 6px 7px}
+.wgrid .card .t{font-size:24px}
+/* context executions: columns filled top to bottom (fastest first), as many columns as fit */
+main.ctxl{display:block;columns:5 200px;column-gap:6px}
+main.ctxl .card{break-inside:avoid;margin-bottom:6px}
+.sheet.full{align-self:stretch}
 footer{padding:0 16px 10px;font-size:10px;color:var(--mute);letter-spacing:.06em;display:flex;gap:14px;align-items:center}
 footer i{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--gold);margin-right:5px;vertical-align:-1px}
 footer span:last-child{margin-left:auto}
