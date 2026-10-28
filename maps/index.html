@@ -2,8 +2,12 @@
 :root{--bg:#0c0c0f;--panel:#17171c;--line:#2b2b34;--bone:#ece5d6;--mute:#8f8b85;--pumpkin:#ff7a1a;--blood:#d0202e;--gold:#ffd166}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:#050506}
-body{font-family:Bahnschrift,'DIN Alternate','Segoe UI',Arial,sans-serif;color:var(--bone);padding:14px;display:flex;justify-content:center}
-.stack{display:inline-flex;flex-direction:column;gap:14px}
+body{font-family:Bahnschrift,'DIN Alternate','Segoe UI',Arial,sans-serif;color:var(--bone);padding:14px;display:flex;justify-content:safe center}
+/* one page frame for all tabs: the nav keeps the same width and place on every page (the width of the widest page, the maps),
+   narrower content is centred under it; the scrollbar gutter is always reserved so short and long pages line up too */
+html{scrollbar-gutter:stable}
+.stack{display:flex;flex-direction:column;align-items:safe center;gap:14px;width:max-content;min-width:min(1194px,100%);flex-shrink:0}      /* never narrower than its content (fixed-width tables on a phone) */
+.stack>nav{align-self:stretch}
 nav{display:flex;flex-wrap:wrap;gap:6px;padding:5px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
 nav a{font-stretch:condensed;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--mute);padding:9px 16px;border-radius:8px}
 nav a:hover{color:var(--bone)}
@@ -54,7 +58,7 @@ footer span:last-child{margin-left:auto}
 h1 .nw{font-size:14px;margin-left:12px;vertical-align:6px;padding:4px 8px 3px}
 .nwl{display:flex;align-items:center;gap:6px;margin-left:auto;padding:0 10px;font-size:11px;letter-spacing:.08em;color:var(--mute);white-space:nowrap}
 
-.stack{min-width:0;max-width:100%}
+.stack{max-width:100%;align-items:stretch}      /* the maps shrink with the window instead (map image max-width 100%) */
 .bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
 .bar .lbl{font-stretch:condensed;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);padding:0 8px 0 4px}
 .bar button{font:inherit;font-stretch:condensed;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;

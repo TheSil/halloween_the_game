@@ -2,8 +2,12 @@
 :root{--bg:#0c0c0f;--panel:#17171c;--line:#2b2b34;--bone:#ece5d6;--mute:#8f8b85;--pumpkin:#ff7a1a;--blood:#d0202e;--gold:#ffd166}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:#050506}
-body{font-family:Bahnschrift,'DIN Alternate','Segoe UI',Arial,sans-serif;color:var(--bone);padding:14px;display:flex;justify-content:center}
-.stack{display:inline-flex;flex-direction:column;gap:14px}
+body{font-family:Bahnschrift,'DIN Alternate','Segoe UI',Arial,sans-serif;color:var(--bone);padding:14px;display:flex;justify-content:safe center}
+/* one page frame for all tabs: the nav keeps the same width and place on every page (the width of the widest page, the maps),
+   narrower content is centred under it; the scrollbar gutter is always reserved so short and long pages line up too */
+html{scrollbar-gutter:stable}
+.stack{display:flex;flex-direction:column;align-items:safe center;gap:14px;width:max-content;min-width:min(1194px,100%);flex-shrink:0}      /* never narrower than its content (fixed-width tables on a phone) */
+.stack>nav{align-self:stretch}
 nav{display:flex;flex-wrap:wrap;gap:6px;padding:5px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
 nav a{font-stretch:condensed;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--mute);padding:9px 16px;border-radius:8px}
 nav a:hover{color:var(--bone)}
