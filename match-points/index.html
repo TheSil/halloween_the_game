@@ -168,7 +168,7 @@ main.mods{grid-template-columns:minmax(0,1fr);gap:12px}
 .chip.ed:hover{border-color:#6fdc7a;color:#c8f2cd}
 .chip.ed:disabled{opacity:.28;cursor:not-allowed}
 .chip.ed.lock{cursor:default}
-.tr.ed{grid-template-columns:minmax(150px,auto) minmax(0,1fr) auto 32px}
+@media(min-width:601px){.tr.ed{grid-template-columns:minmax(150px,auto) minmax(0,1fr) 125px 32px}}
 .del{cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid #5a2a2e;
  background:rgba(208,32,46,.12);color:#ff9a9f;padding:0}
 .del:hover{background:rgba(208,32,46,.3);border-color:#a03038;color:#fff}
